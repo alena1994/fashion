@@ -1,0 +1,23 @@
+# The Domain and Path attributes define the scope of the cookie.
+# They essentially tell the browser what website the cookie belongs to.
+# For obvious security reasons, cookies can only be set on the current resource's top domain and its sub domains, and not for another domain and its sub domains.
+# For example, the website example.org cannot set a cookie that has a domain of foo.com because this would allow the example.org website to control the cookies of foo.com.
+# If a cookie's Domain and Path attributes are not specified by the server, they default to the domain and path of the resource that was requested.
+# However, in most browsers there is a difference between a cookie set from foo.com without a domain, and a cookie set with the foo.com domain.
+# In the former case, the cookie will only be sent for requests to foo.com.
+# In the latter case, all sub domains are also included (for example, docs.foo.com).
+# A notable exception to this general rule is Internet Explorer, which always sends cookies to sub domains regardless of whether the cookie was set with or without a domain.
+path: /
+domain: 
+
+# A secure cookie can only be transmitted over an encrypted connection (i.e. HTTPS).
+# They cannot be transmitted over unencrypted connections (i.e. HTTP).
+# This makes the cookie less likely to be exposed to cookie theft via eavesdropping.
+# A cookie is made secure by adding the «Secure» flag to the cookie.
+secure: false
+
+# An HttpOnly cookie cannot be accessed by client-side APIs, such as JavaScript.
+# This restriction eliminates the threat of cookie theft via cross-site scripting (XSS).
+# However, the cookie remains vulnerable to cross-site tracing (XST) and cross-site request forgery (XSRF) attacks.
+# A cookie is given this characteristic by adding the «HttpOnly» flag to the cookie.
+httpOnly: false

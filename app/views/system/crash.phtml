@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<style>
+			html body {
+				color: #3a3a3a;
+				font-size: 14px;
+				font-family: "Courier New", Courier, monospace;
+			}
+			html body p {
+				margin-top: 0;
+				margin-bottom: 12px;
+			}
+			html body p:last-child {
+				margin-bottom: 0;
+			}
+			html body p.pre {
+				white-space: pre;
+			}
+			html body div.container div.section {
+				margin: 24px;
+				overflow-x: auto;
+			}
+			html body div.container div.section div.title,
+			html body div.container div.section div.content {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			html body div.container div.section div.title {
+				border-bottom-width: 1px;
+				border-bottom-style: solid;
+				font-size: 1.2em;
+			}
+			html body div.container div.section div.title.red {
+				border-bottom-color: red;
+				color: red;
+			}
+			html body div.container div.section div.title.blue {
+				border-bottom-color: blue;
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="section">
+				<div class="title red">
+					<p><?= nl2br($this->e($message)) ?></p>
+				</div>
+				<div class="content">
+					<p>&rarr;&nbsp;<?= $file ?>&nbsp;#<?= $line ?></p>
+				</div>
+			</div>
+			<div class="section">
+				<div class="title blue">
+					<p>Back-trace</p>
+				</div>
+				<div class="content">
+					<p class="pre"><?php debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS) ?></p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
